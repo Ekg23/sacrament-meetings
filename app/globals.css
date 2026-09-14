@@ -24,3 +24,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+nav[aria-label="Primary"] a.active {
+    color: #1e3a8a;
+    border-bottom-color: #1e3a8a;
+    font-weight: 700;
+}
