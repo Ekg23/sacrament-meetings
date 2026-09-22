@@ -1,4 +1,5 @@
-import { SacramentMeeting } from "@/lib/types";
+'use client'
+import { SacramentMeeting } from "@/lib/types"
 
 
 export default function MeetingDetail({meeting}: {meeting: SacramentMeeting}) {
@@ -122,6 +123,15 @@ export default function MeetingDetail({meeting}: {meeting: SacramentMeeting}) {
                     </ul>
                 </section>
             )}
+
+            {/* Print Button */}
+            <div className="mt-8 pt-6 border-t border-gray-200 text-center">
+                <button
+                    onClick={() => window.print()}
+                    className="bg-blue-800 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
+                        Print
+                    </button>
+            </div>
         
     </div>
 

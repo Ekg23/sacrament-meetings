@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import MeetingDetail from '@/components/MeetingDetail'
-import { getMeetingById } from '@/lib/meetings-db'
+import { SacramentMeeting } from '@/lib/types'
 
 export default async function MeetingPage({
     params,
@@ -8,11 +8,12 @@ export default async function MeetingPage({
     params: Promise<{ id: string }>
 }) {
     const {id} = await params
-    const meeting = await getMeetingById(Number(id))
+    const response = await fetch(
+        `http://localhost:3000/api/meetings/${id}`)
 
-    if (!meeting) {
+    if (!response.ok) {
         notFound()
     }
-
+    const meeting: SacramentMeeting = await response.json()
     return <MeetingDetail meeting={meeting} />
 }

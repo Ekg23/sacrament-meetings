@@ -1,19 +1,21 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import NavLinks from '@/components/NavLinks'
 
 export default function HomePage() {
     return (
-        <section className="max-w-2xl mx-auto px-4 py-12 text-center">
+        <section className="max-w-4xl mx-auto px-4 py-6 text-center">
+            <NavLinks />
              <Image
-                src="/hero.jpg"
-                alt="Adenta Ward 4 chapel exterior"
+                src="/hero1.webp"
+                alt="Adenta Ward  chapel exterior"
                 width={1200}
                 height={600}
                 priority
                 className="rounded-lg mb-8"
             />
             <h1 className="text-3xl font-bold text-blue-900 mb-4">
-                Adenta Ward 4
+                Adenta Ward 
             </h1>
             <p className="text-gray-600 mb-8">
                 Sacrament meeting programs and schedules.
