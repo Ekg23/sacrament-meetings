@@ -12,7 +12,7 @@ export async function GET(request : Request, {params}: {params: Promise<{id : st
         );
     }
      
-    const meeting = getMeetingById(numericId);
+    const meeting =  await getMeetingById(numericId);
     
     if (!meeting) {
         return Response.json(

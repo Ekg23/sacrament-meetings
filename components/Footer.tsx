@@ -13,7 +13,7 @@ export default function Footer () {
             <div className="max-w-4xl mx-auto text-center">
                 <p className="text-sm text-blue-200"> {currentDate}</p>
                 <p className="text-xs text-blue-300 mt-1">
-                    © {new Date().getFullYear()} Adenta Ward 4
+                    © {new Date().getFullYear()} | Geoffrey Kofi Etu | All rights reserved.
                 </p>
             </div>
         </footer>
