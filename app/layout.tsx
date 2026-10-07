@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import './globals.css'
+import { SessionProvider } from 'next-auth/react'
 
 const inter = Inter({
     subsets: ['latin'],
@@ -10,9 +11,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-    title: 'Adenta Ward 4 - Sacrament Meetings',
-    description: 'Sacrament meeting programs for Adenta Ward 4',
-}
+  title: {
+    default: 'Sacrament Meetings',
+    template: '%s | Sacrament Meetings',
+  },
+  description:
+    'Manage and view sacrament meeting information, speakers, hymns, prayers, and ward business.',
+};
 
 export default function RootLayout({
     children,
@@ -23,7 +28,7 @@ export default function RootLayout({
         <html lang="en" className={inter.className}>
             <body className="min-h-screen flex flex-col">
                 <Header />
-                <main className="flex-1">{children}</main>
+                <SessionProvider><main className="flex-1">{children}</main></SessionProvider>
                 <Footer />
             </body>
         </html>

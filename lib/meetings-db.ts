@@ -1,5 +1,5 @@
 import { neon } from '@neondatabase/serverless';
-import type { SacramentMeeting } from './types';
+import type { SacramentMeeting, User } from './types';
 
 const sql = neon(process.env.DATABASE_URL!);
 
@@ -91,4 +91,19 @@ export async function updateMeeting(
 
 export async function deleteMeeting(id: number): Promise<boolean> {
   throw new Error('deleteMeeting: database implementation coming in Week 04');
+}
+
+export async function getUserByEmail(email: string): Promise<User | undefined> {
+  try {
+    const rows = await sql`
+    SELECT id, name, email, password_hash AS "passwordHash"
+    FROM users
+    WHERE email = ${email}
+    `;
+    return rows[0] as User | undefined
+  }
+  catch(error) {
+    console.error("Failed to get user by email: ", error);
+    throw new Error("Failed to get user");
+  }
 }

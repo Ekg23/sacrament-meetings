@@ -42,3 +42,10 @@ export interface SacramentMeeting {
     closingHymn: Hymn;
     closingPrayer: string;
 }
+
+export type User = {
+  id: number;
+  name: string;
+  email: string;
+  passwordHash: string;
+};
